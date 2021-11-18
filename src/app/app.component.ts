@@ -10,16 +10,16 @@ export class AppComponent implements OnInit {
 
   @ViewChild("divId", { static: true }) div!: ElementRef;
 
-  buttonSubscription!: Subscription;
+  subscription!: Subscription;
 
   constructor() {}
 
   ngOnInit() {
-    this.buttonClick(this.event);
+    this.onClick(this.event);
   }
 
-  buttonClick(event: any) {
-    this.buttonSubscription = fromEvent(
+  onClick(event: any) {
+    this.subscription = fromEvent(
       this.div.nativeElement,
       event
     ).subscribe((res: any) => {
